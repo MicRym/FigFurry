@@ -8,6 +8,28 @@ UBiomeTriggerComponent::UBiomeTriggerComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
+void UBiomeTriggerComponent::Shoot()
+{
+	AActor* Actor = GetTriggerActor();
+	UResourceComponent* ResourceSun = nullptr;
+	UResourceComponent* ResourceDirt = nullptr;
+	UResourceComponent* ResourceWater = nullptr;
+	if (Actor != nullptr)
+	{
+		ResourceSun = Actor->GetComponentByClass<USunResourceComponent>();
+
+		ResourceDirt = Actor->GetComponentByClass<UWaterResourceComponent>();
+
+		ResourceWater = Actor->GetComponentByClass<UEarthResourceComponent>();
+	}
+			ResourceSun->DecreseValue(DecreaseValue);
+			ResourceDirt->DecreseValue(DecreaseValue);
+			ResourceWater->DecreseValue(DecreaseValue);
+
+
+
+}
+
 void UBiomeTriggerComponent::BeginPlay()
 {
 	Super::BeginPlay();

@@ -25,12 +25,13 @@ class MAGEJAMEFINAL_API UBiomeTriggerComponent : public UBoxComponent
 
 public:
 	UBiomeTriggerComponent();
+	void Shoot();
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UPROPERTY(EditAnywhere)
-	float DecreaseValue{ 1.0f };
+	float DecreaseValue{ 5.0f };
 	AActor* GetTriggerActor() const;
 	UPROPERTY(EditAnywhere)
 	EResourceType BiomeType{ EResourceType::None};
