@@ -22,7 +22,35 @@ void UBiomeTriggerComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 	}
 	else 
 	{
-		UE_LOG(LogTemp, Warning, TEXT("TriggerAction Here"));
+
+		UResourceComponent* Resource =nullptr;
+		switch (BiomeType)
+		{
+		case EResourceType::None:
+			break;
+		case EResourceType::Sun:
+			Resource = Actor->GetComponentByClass<USunResourceComponent>();
+			break;
+		case EResourceType::Water:
+			UE_LOG(LogTemp, Warning, TEXT("TriggerAction Here"));
+			Resource = Actor->GetComponentByClass<UWaterResourceComponent>();
+			break;
+		case EResourceType::Earth:
+			Resource = Actor->GetComponentByClass<UEarthResourceComponent>();
+			break;
+		default:
+			break;
+		}
+		if (Resource)
+		{
+			Resource->IncreaseValue(DecreaseValue *DeltaTime);
+			UE_LOG(LogTemp, Warning, TEXT("Current Value %f"), Resource->GetResourceValue());
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Resource Not Found Here"));
+		}
+
 	}
 }
 

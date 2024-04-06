@@ -24,15 +24,15 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable)
-	void DecreseValue(int32 Decreaser = 1);
+	void DecreseValue(float Decreaser = 1);
 	UFUNCTION(BlueprintCallable)
-	void IncreaseValue(int32 Increaser = 1);
+	void IncreaseValue(float Increaser = 1);
 	UFUNCTION(BlueprintCallable)
-	int32 GetResourceValue(){ return Value; };
+	float GetResourceValue(){ return Value; };
 	UFUNCTION(BlueprintCallable)
-	void SetResourceValue(int32 NewValue) { Value = NewValue; };
+	void SetResourceValue(float NewValue) { Value = NewValue; };
 private:
 	UPROPERTY(EditAnywhere)
-	int32 Value{ 0 };
+	float Value{ 0 };
 		
 };

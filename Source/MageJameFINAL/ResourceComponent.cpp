@@ -32,12 +32,12 @@ void UResourceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 	// ...
 }
 
-void UResourceComponent::DecreseValue(int32 Decreaser)
+void UResourceComponent::DecreseValue(float Decreaser)
 {
 	Value -= Decreaser;
 }
 
-void UResourceComponent::IncreaseValue(int32 Increaser)
+void UResourceComponent::IncreaseValue(float Increaser)
 {
 	Value += Increaser;
 }
