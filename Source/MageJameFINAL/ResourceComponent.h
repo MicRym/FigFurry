@@ -31,6 +31,9 @@ public:
 	float GetResourceValue(){ return Value; };
 	UFUNCTION(BlueprintCallable)
 	void SetResourceValue(float NewValue) { Value = NewValue; };
+	UPROPERTY(EditAnywhere)
+	float MaxValue{ 100 };
+
 private:
 	UPROPERTY(EditAnywhere)
 	float Value{ 0 };

@@ -39,6 +39,14 @@ void UResourceComponent::DecreseValue(float Decreaser)
 
 void UResourceComponent::IncreaseValue(float Increaser)
 {
-	Value += Increaser;
+	if (Value < MaxValue)
+	{
+		Value += Increaser;
+	}
+	else
+	{
+		Value = MaxValue;
+	}
+	
 }
 
